@@ -1,0 +1,16 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+availabilityZones: ["us-west-2a",     "us-west-2b",     "us-west-2c",     "us-west-2d"]
+metadata:
+  name: cluster-name
+  region: "us-west-2"
+  version: "1.13"
+
+nodeGroups:
+  - name: nodegroup-name
+    instanceType: t2.medium
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 2
+    volumeSize: 20
+    availabilityZones: ["us-west-2a",     "us-west-2b",     "us-west-2c",     "us-west-2d"]

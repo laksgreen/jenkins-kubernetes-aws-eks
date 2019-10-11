@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-master
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: jenkins-master
+    spec:
+      securityContext:
+        fsGroup: 99
+      containers:
+        - name: jenkins-master
+          image: jenkinsci/jenkins:lts
+          volumeMounts:
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+          ports:
+            - containerPort: 8080
+            - containerPort: 50000
+      volumes:
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: jenkins-master-pvc
