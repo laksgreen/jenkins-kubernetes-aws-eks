@@ -1,7 +1,7 @@
 Setup Jenkins Master in Kuberenetes (AWS-EKS):
-
-Create a new EKS cluster setup:
-
+---------------------------------------------
+Create a new EKS cluster set up:
+-------------------------------
 $ eksctl create cluster -f eks.yaml 
 
 Install IAM authenticator:
